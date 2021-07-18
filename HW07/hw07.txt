@@ -1,0 +1,37 @@
+John Bowen
+ECE 435 Spring 2021
+Homework 7
+More Internet Protocol
+
+1. Network Address Translation
+	(a) No, it is not normal for an address like 192.168.8.38 to connect to IP 8.8.8.8. This is because 8.8.8.8 is the primary DNS server for Google, and connecting to this overides any local DNS servers which may cause a slower internet connection. This connection is possible because Google DNS is a public DNS service.
+	(b) The NAT firewall may track whether a UDP packet has been replied to or not because NAT routers have a 'stateful' or connection oriented nature. If the router with open connections then the connections will be lost. So tracking the response of a UDP packet may help investigate this.
+
+2. IPv6
+	(a) i and ii are all valid IPv6 addresses. The format reflects 128 bit max address, two bytes seperated by colons (max 16 bytes total), and some not having leading zeros, NO DOUBLE COLONS.
+	(b)
+	___________________________________________________________________________________________
+	| Begin IPv6 Header           | Name of Field       | Decoded Value                       |
+	|_____________________________|_____________________|_____________________________________|
+	| 0x000e: 6                   | Version             | 6                                   |
+	| 0x000f: 00                  | Traffic Class       | 00                                  |
+	| 0x0010: 2         2618      | FLow Label          | 140824                              |
+	| 0x0012: 0031                | Payload Length      | 49 (not including header)           |
+	| 0x0014: 11                  | Next Header         | 17                                  |
+	| 0x0015: 40                  | Hop Limit           | 64                                  |
+	| 0x0016: 2610 0048 0100 08da | Source Address      | IPv6 Format:                        |
+	|         0230 18ff feab 1c39 |                     |  2610:48:100:8da:230:18ff:feab:1c39 |
+	| 0x0026: 2001 4860 4860 0000 | Destination Address | IPv6 Format:                        |
+	|         0000 0000 0000 8844 |                     |  2001:48:4860::8844                 |
+	|_________________________________________________________________________________________|
+	|                                   End IPv6 Header                                       |
+	|_________________________________________________________________________________________|
+
+3. Traceroute and Routing
+	(a) 
+		i. Hop #7 is the hop that takes the packet accross the Atlantic Ocean. This is infered by the relatively long 107.802ms time and all subsequent hops having a higher latency than the ones before hop #7.
+		ii. The city this happens in is New York City. This is infered by hop #6's hostname containing 'newy32aoa.net'.
+	(b) 
+		i. There are a fewer number of hops because there are less IPv6 devices compared to IPv4 devices.
+		ii. The latency is worse when using IPv6, this may be because there are no NAT IPv4 routers - meaning TCP and UDP header checksums don't need to be re-computed..
+		    Another reason may be 

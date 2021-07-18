@@ -1,0 +1,43 @@
+John Bowen
+ECE 435 Spring 2021
+Homework 6
+IPv4
+
+1. 
+	| BEGIN IPv4 HEADER | Name of Field           | Decoded Value                    |
+	|___________________|_________________________|__________________________________|
+	| 0x000e: 4         | Version                 | 4 (v4)                           |
+	| 0x000e: 5         | Header Length (IHL)     | 5 (5 32-bit words)               | 
+	| 0x000f: 00        | Type of Service         | 0 (Normal priority)              |
+	| 0x0010: 0038      | Total Length            | 56 (datagram is 56 bytes)        |
+	| 0x0012: 572a      | Identification          | 22314                            |
+	| 0x0014: 4000      | Flags + Fragment Offset | Flags: 2 (Don't Fragment), FO: 0 |
+	| 0x0016: 40        | Time to Live            | 64 (64 seconds)                  |
+	| 0x0017: 06        | Protocol                | 6                                |
+	| 0x0018: 69cc      | Header Checksum         | 27084                            |
+	| 0x001a: c0a8 0833 | Source Address          | 30052004063                      |
+	| 0x001e: 826f 2e7f | Destination Address     | 2188324479                       |
+	|________________________________________________________________________________|
+	|				End IPv4 HEADER 				 |
+
+2.
+	(b) 8.8.8.8, (c) 3232237569, and (d) 0xc0a80801 are valid IPv4 addresses. They are all represented as 4 octets of bits (4 bytes). The max an octet can be in decimal is 255.
+
+3.
+	The entire IPv4 space is 2^32 possible IPv4 addresses. Since Ford owned 19.0.0.0/8, this means they owned 2^(32-8) or 2^24 possible IPv4 addresses. Percentage-wise, Ford owned about (2^24)/(2^32)*100 = 0.4% of all IPv4 addresses.
+
+4. 192.168.12.0/24
+	(a) Subnet mask:                       255.255.255.0
+	(b) Lowest IPv4 address could assign:  192.168.12.0
+	(c) Highest IPv4 address could assign: 192.168.12.254
+
+5.	
+	(a) 192.168.8.2
+	(b) 0.0.0.0
+6. 
+	(a) ~30.0ms
+	(b) The return hostname is lga34s11-in-f4.1e100.net - the registrar is 1e100.net.
+
+7.
+	(a) 16 hops away - The first hop is my IPv4 address. The second is 192.168.0.1, the default router IP address for Spectrum (my router).
+	(b) 12 hops away - Yes the response times gradually go up for each futher hop. 	

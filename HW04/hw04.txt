@@ -1,0 +1,31 @@
+John Bowen
+ECE 435 Spring 2021
+Homework 4
+
+1. DNS
+	(a)
+		i. Domain record activated: 02-Dec-1988
+		ii. EDUCAUSE is the top-level registry that holds the info for the .edu domain
+	(b)
+		i. IPv4 address of weaver.eece.maine.edu
+			130.111.218.23
+		ii. IPv6 address of google.com
+			2607:f8b0:4009:80d::200e
+		iii. Name of UMaine nameservers
+			nameo.its.maine.edu
+			namep.its.maine.edu
+		iv. Name of UMaine mailservers
+			ALT2.ASPMX.L.GOOGLE.COM
+			ALT3.ASPMX.L.GOOGLE.COM
+			ALT1.ASPMX.L.GOOGLE.COM
+			ALT4.ASPMX.L.GOOGLE.COM
+			ASPMX.L.GOOGLE.COM
+2. UDP
+	(a)
+		i. Source port: 0xa9a0 = 43424
+		ii. Destinatino port: 0x0035 = 53
+		iii. Size of UDP packet: 0x002a = 42
+		iv. Yes, checksum is enabled since the corresponding two bytes are non-zero.	
+		v. Since the destination port is 53, this is a Domain Name System (DNS) request.
+	(b) One reason to use UDP over TCP is that UDP is faster than TCP primarily since UDP disregards erroneous packets while TCP doesn't. 
+		

@@ -1,0 +1,13 @@
+John Bowen
+ECE 435 Spring 2021
+Homework 10
+Wireless/Bridging
+
+1. LANs/Switches
+	(a) If a self-learning bridge sees a destination address it hasn't seen before, it will broadcast the address to all destinations. Once a response happens, the destinations source is now known, and the bridge updates its table and no longer broadcasts with subsequent frames to that destination address.
+	(b) One reason to seperate your LAN into seperate networks rather than one big LAN is for security. On one big LAN, all data packets can be seen by all machines. So if you want to have more security when handling data frames containing financial information for example, a split up LAN would be a better solution.
+
+2. Wireless
+	(a) 31dBm = 1.26W
+		1.26W = 10^(31dBm/10)/1000
+	(b) An interference with a 2.4GHz WiFi signal could be due to a hobbyist using another WiFi or bluetooth module. It is legal for that interference to happen since 2.4GHz is in the Industrial/Scientific/Medical (ISM) bands, which doesn't require a license. Other possible interferences could be a microwave oven.

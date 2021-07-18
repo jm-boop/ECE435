@@ -1,0 +1,26 @@
+John Bowen
+ECE 435 Spring 2021
+Homework 3
+
+1. Encryption
+	(a) md5sum
+		i. e19a9f22b1401c42eccb2d66fdb5ff1e  hw3_test.txt
+		ii. e6d7549fd1d6a94cf87d979b3adffa50  hw3_test-copy.txt
+		    The resulting hash is drastically different from the un-modified file's hash.
+	(b) PGP/GPG
+		i. Yes, running 
+			$ gpg --verify ./hw3_test.txt.signed
+		   results in a good signature pass.
+		   After modifying the file and reverifying, it results in a BAD signature. 
+		ii. To konw that it was really Vincent Weaver that signed the document, the public key can be Certificate Authority verified as a trusted public key to ensure no imposter uses the key.
+		iii. Will submit 'secret_message.gpg' upon submission.
+
+2. E-mail Headers
+	(a)
+		i. No, this email is likely not legitimate. It is a 'ufl.edu' domain that goes through a 'mx.siteprotect.com' on the second 'Received:' block, which makes me think it is some type of school edu that is trying to hide there original domain. There is also a large time difference between the sending and final receiving of the email.
+		ii. No, if this email contained a .pdf I would not open it due to the suspicious email header. PDFs can also be harmful to your machine.
+
+	(b)
+		i. This section of the e-mail shows the description of an attached file, specifically the name, type, size, creation-date, mod-date, and the encoding of the code below.
+		ii. The block of code at the end represents the content of the attached image. It isn't in human readable format, containing a sequence of octets representing an ASCII character.
+		

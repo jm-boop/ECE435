@@ -1,0 +1,40 @@
+John Bowen
+ECE 435 Spring 2021
+Homework 9
+Link Layer and Ethernet
+
+1. Ethernet Header
+	(a) 
+		| BEGIN Ethernet HEADER  | Name of Field       | Decoded Value       |
+		|________________________|_____________________|_____________________|
+		| 0x0000: 0013 3b10 667f | Destination Address | 82,595,309,183      |
+		| 0x0006: b827 ebaf 3711 | Source Address      | 202,481,597,363,985 |
+		| 0x000c: 0800           | Type/Length         | (Type) IPv4         |
+	(b)
+		Desination OUI:
+			Speed Dragon Multimedia Limited
+		Source OUI:
+			Raspberry Pi Foundation
+	(c) No, the destination MAC address will not match this. The destination MAC address will correspond to the local networks router machine which is the last stop of an outgoing packet in the local network.
+
+2. Protocol Mystery
+	(a) Address Resolution Protocol (ARP)
+	(b) ARP is used to map IPv4 addresses to MAC address so packets of info are transmitted to the correct machine on the local network.
+
+3.
+	(a) Although ethernet is a 'best effort' transmission of packets, it won out over TokenRing primarily because it is cheaper and could use existing wiring such as twisted pair cable. It is also simpler because the is no QoS or central control.
+	(b) The minimum size of an Ethernet frame is 64 bytes because 64 bytes is the minimum data frame (46 bytes) plus 8 bytes for the header. A data frame of 46 bytes is long enough to ensure collisions be reliably detected by all devices over the specificied maximum cable length.
+	(c) The maximum size of an Ethernet frame is 1500 bytes essentially RAM was expensive back in 1978, but primarily a length greater than 0x600 (1536) is type 0x800 which is IPv4 protocol.	
+	(d) If an Ethernet card calculates an invalid CRC or a frame, it will throw out the frame rather than try and resolve the faulty packet.
+
+4. Investigating an Ethernet Interface
+	(a) Using my Windows machine running a Windows Subsystem for Linux...
+		i. MAC address = 00:15:5d:1d:20:a4
+		ii. Microsoft Corporation - this makes sense
+		iii. MTU = 1500 bytes
+		iv. 106007 bytes
+		v. 1216
+		vi. 0 collisions
+		vii. 0 dropped
+		viii. The collision count may be 0 since the defualt frame size for packets is 1500 bytes, well over the minimum 46 byte threshold where if underneath collisions begin to occur.
+		 

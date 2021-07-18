@@ -1,0 +1,52 @@
+John Bowen
+ECE 435 Spring 2021
+Homework 5
+TCP
+
+1.
+	| BEGIN TCP HEADER  |         Name of Field       |                   Decoded Value                     |
+	|___________________|_____________________________|_____________________________________________________|
+	| 0x0022: bda5      | Source Port                 | 48548 - Port 48548					|
+	| 0x0024: 0050      | Destination Port            | 80 - Port 80					|
+	| 0x0026: cdc4 6a49 | Sequence #                  | 3452201545						|	
+	| 0x002a: 3c7b 6ca5 | Acknowledge #               | 1014721701						|
+	| 0x002e: 80        | Top 4 Bits: Data Offset     | 8 - 8 32-bit words in TCP Header			|
+	|		    | Bottom 4 Bits: Reserved     | 0							|
+	| 0x002f: 18        | Top 2 Bits: Reserved        | 0							|
+	|		    | Bottom 6 Bits: Control Bits | 24 - URG: 0, ACK: 1, PSH: 1, RST: 0, SYN: 0, FIN: 0 |
+	| 0x0030: 00e5      | Window #                    | 229							|
+	| 0x0032: 79f4      | Checksum                    | 31220						|
+	| 0x0034: 0000      | Urgent Pointer              | 0							|
+	| 0x0036: 01        | Option-kind                 | 1							|
+	| 0x0037: 01        | Option-length               | 1							|
+	| 0x0038: 080a 	    | Option-data padding         | 2058						|
+	| 0x003a: 0104 3e58 | Option-data padding         | 17055320						|
+	| 0x003e: 34a8 7bc3 | Option-data padding         | 883456963						|
+	|_________________________________________________|_____________________________________________________|
+	|       		                   END TCP HEADER						|
+	|_______________________________________________________________________________________________________|
+	|       		                     BEGIN DATA							|
+	|_______________________________________________________________________________________________________|
+	| 0x0042: 4745 540a | Data			  | 1195725834						|
+	|_________________________________________________|_____________________________________________________|
+	| 			                      END DATA							|
+	|_______________________________________________________________________________________________________|
+
+2.
+	(a) Based on the destination port being port 80, it is connecting to an HTTP web server.
+	(b) The option-length is 1 byte, which according to RFC793 includes the size of the option-kind, option-length, and option-data. Since the option-kind and option-length themselves are 1 byte in size, the subsequent 10 bytes of option data are useless. So 22/32 bytes or %68.75 of the TCP header was useful data, the rest being overhead.Furthermore, the option-kind is 1 which corresponds with 'No Operation'. 
+
+3. 
+	(a) Firstly, since no reset packet or error was sent back after the first packet, there was a successful connection. This is further shown by the server sending back 3649305636 in the acknowlege segment, which is the sequence segment number 2649305635 that was sent from the client previously, plus one, along with a new sequence number. The client then send an acknowledge number of 1 (the difference between the current acknowledge number and last sequence number) which successfully finishes the '3-way handshake' between the client and server.
+	(b) In the first packet, the message 'Hi' is sent to the server. In the second packet, the server receives the message from the client. In the third packet, the server sends back the message 'HI'. In the fourth packet, the client receives the message from the server.
+	(c) In the first packet, once the client sends 'bye' to the server. In the second packet, the server receives the message and sends back a FIN segment with the message 'BYE', saying "I have no other data to send after this". In the third packet, the client closes the connection and connection sending a final FIN segment to the server who also closes the connection after receiving.
+
+4. 
+	(a) No, the tcp/CLOSE-WAIT connections seem like a normal 'wait to close connection' from three different peer addresses.
+	(b) No, the tcp/ESTAB connections seem like normal open connections to four different peer addresses.
+	(c) Yes, you should worry about the tcp/SYN-RECV connections. The SYN-RECV represents waiting for a confirming connection request acknowledgment after having both received and sent a connection request. These 200+ connections reflect a 'SYN Flood Attack' with a possible spoofed Peer Address and Port - the Port increments 53074, 53075, 53076... which is very suspicious.
+	(d) No, the tcp/TIME-WAIT connections seems normal, waiting for enough time to pass to be sure the peer address received the ack of our termination request.
+	(e) No, the udp/UNCONN connections seem normal, with the aggregation time having passed and no new events to add to the udp connection.
+	(f) No, the tcp/LISTEN connections seem normal, waiting for a connection request from any peer address and port.
+
+5. The OS recognized the many tcp/SYN-RECV connections as a SYN Flood Attack and encabled Send Cookies to close these pending connections and free up packet traffic and not hold the data for the SYN-RECV connections. If a return ack were to prove a real connection, then our OS would be able to successfully regenerate the sequence number and establish a connection.

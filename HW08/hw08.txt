@@ -1,0 +1,16 @@
+John Bowen
+ECE 435 Spring 2021
+Homework 8
+The Physical Layer
+
+1. Physical Layer - Bandwidth Calculations
+	(a) 10*log(25) = 13.98dB
+	(b) 100MHz*log_2(1 + 17) = 41.7E9 bps
+
+2. Physical Layer - Tradeoffs
+	(a) One benefit fiber optics has over copper wire is that it is thin and lightweight, which means there can be more fiber optic lines underground in tight spaced ducts.
+	(b) One benefit satellite connections has over fiber is that you can transmit data at much greater distances than with physical fiber connections.
+	(c) One benefit fiber has over satellite is lower latency. There is a ~300ms latency with communication satellites due to them being ~35,800km above the Earth's surface in geo-stationary orbit.
+3. Physical Layer - Regulations
+	(a) A transmitter that transmits a 100W signal at 4.3GHz may be dangerous. This is because water can absorb 4.3GHz and will be begin to heat up in correspondence with how strong of a signal is being applied. At 100W, this may start to heat anything up in the signals straight path that contains water. The government and FCC would definetly not approve of this type of transmitter for a final project!
+

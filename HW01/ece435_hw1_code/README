@@ -1,0 +1,14 @@
+ECE435 -- Spring 2021
+
+Name: John Bowen
+
+Describe the "something cool" that you did:
+	For something cool I printed the port and address of the incoming client. This was done by casting the 'struct sockaddr client_addr' to 'struct sockaddr_in'for the incoming client.
+
+Answer to Questions in Part 5:
+(a)
+	The first layer, or the 'Physical' layer, deals with bits, voltages, and frequencies involved.
+
+(b)
+	The third layer, or the 'Network' layer, deals with routing packets from one network to anther.
+

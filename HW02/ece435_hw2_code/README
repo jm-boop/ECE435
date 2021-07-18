@@ -1,0 +1,15 @@
+ECE435 HW#2 -- Spring 2021
+
+Name: John Bowen
+
+Answers to Question 2:
+(a)
+	i.    404 - File or page not found
+	ii.   418 - Tried to brew coffee with a teapot (Easter Egg Status Code)
+	iii.  451 - Unavailable for legal reasons
+(b)
+	i. nginx/1.16.1
+	ii. No, you can not connect to a HTTP/2 server with telnet because HTTP/2 uses SPDY which is not a text-based protocol like HTTP/1.1.
+
+
+
